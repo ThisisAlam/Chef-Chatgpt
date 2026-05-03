@@ -1,7 +1,17 @@
-export default function Form() {
+export default function Form({addIngredient}) {
+    function handleSubmit(e){
+        e.preventDefault()
+        
+        const formData = new FormData(e.currentTarget)
+        const newIngredient = formData.get("ingredient")
+        
+        props.addIngredient(newIngredient)
+        e.currentTarget.reset()
+    }
+    
     return (
         <>
-            <form className="add-ingredient-form">
+            <form onClick={handleSubmit} className="add-ingredient-form">
                 <input 
                     type="text"
                     placeholder="e.g. oregano"
