@@ -1,6 +1,4 @@
-import "../UI/recipe.css"
-
-export default function Recipe(){
+export default function RecipeFromAI(){
   return(
     <>
         <section>
