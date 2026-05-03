@@ -1,0 +1,12 @@
+import { createRoot } from "react-dom/client"
+import App from "./App.jsx"
+import "./UI/App.css"
+import "./UI/index.css"
+
+const root = createRoot(document.getElementById('root'))
+
+root.render(
+  <main className="app">
+    <App />
+  </main>
+)

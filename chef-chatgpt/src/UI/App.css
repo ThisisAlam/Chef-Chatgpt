@@ -1,0 +1,9 @@
+.app{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    /* overflow: hidden; */
+    /* border-radius: .75rem; */
+    width: 100%;
+}

@@ -1,0 +1,19 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    background-color: whitesmoke;
+    border: 2px solid white;
+    border-radius: .75rem;
+}
+.header>img{
+    width: 50px;
+}
+.header>span{
+    font-size:1.25rem;
+    font-weight: bold;
+}
