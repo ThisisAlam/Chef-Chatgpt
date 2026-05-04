@@ -1,5 +1,5 @@
 
-export default function CallAIButton(){
+export default function CallAIButton({getRecipe, loading}){
     return(
         <section className="get-recipe-container">
             <div>
@@ -7,8 +7,10 @@ export default function CallAIButton(){
                 <p>Generate a recipe from your list of ingredients.</p>
             </div>
 
-            <button className="get-recipe-btn">
-                Get a recipe
+            <button onClick={getRecipe}
+                    className="get-recipe-btn" 
+                    disabled={loading}>
+                {loading ? "Generating..." : "Get a recipe"}
             </button>
         </section>
     )

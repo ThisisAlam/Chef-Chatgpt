@@ -1,9 +1,12 @@
-export default function RecipeFromAI(){
-  return(
-    <>
-        <section>
+import ReactMarkdown from 'react-markdown'
 
-        </section>
-    </>
+
+export default function RecipeFromAI({recipe}){
+  return(
+    <section className="recipe-from-AI">
+      <ReactMarkdown>
+        {recipe}
+      </ReactMarkdown>
+    </section>
   )
 }

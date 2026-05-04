@@ -1,6 +1,7 @@
 
 .main-content {
     height: 515px;
+    /* border: 2px solid black; */
 }
 
 /* Form */
@@ -35,10 +36,10 @@
 
 /* Ingredients */
 .ingredients-section {
-    padding: 20px;
+    padding: 20px 30px;
     /* border: 2px solid black; */
     overflow-y: scroll;
-    height: 80%;
+    height: 81%;
 }
 
 .ingredients-section h2 {
@@ -94,4 +95,10 @@
 /* Call AI Button */
 .get-recipe-container{
     background-color: #e8e8e8;
+}
+
+/* Recipe from AI */
+
+.recipe-from-AI{
+    margin-top: 2rem;
 }

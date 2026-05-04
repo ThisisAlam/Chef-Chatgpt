@@ -1,27 +1,21 @@
-export default function Form({addIngredient}) {
-    function handleSubmit(e){
-        e.preventDefault()
-        
-        const formData = new FormData(e.currentTarget)
-        const newIngredient = formData.get("ingredient")
-        
-        props.addIngredient(newIngredient)
-        e.currentTarget.reset()
-    }
+
+export default function Form(props) {
     
+    function handleSubmit(formData){
+        const newIngredient = formData.get("ingredient")
+        props.addIngredient(newIngredient)
+    }
+
     return (
         <>
-            <form onClick={handleSubmit} className="add-ingredient-form">
-                <input 
+            <form action={handleSubmit} className="add-ingredient-form">
+                <input
                     type="text"
-                    placeholder="e.g. oregano"
-                    aria-label="Add ingredient"
                     name="ingredient"
+                    placeholder="e.g. oregano"
                     required
                 />
-                <button>
-                    + Add ingredient
-                </button>
+                <button>Add ingredient</button>
             </form>
             <hr />
         </>

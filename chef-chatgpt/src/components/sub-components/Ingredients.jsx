@@ -1,30 +1,46 @@
+
+import React from "react"
+
 import CallAIButton from "./CallAIButton.jsx"
 import RecipeFromAI from "./RecipeFromAI.jsx"
 
-export default function Ingredients({ ingredients }) {
+import { getRecipeFromMistral } from "../../../ai.js"
 
+export default function Ingredients({ ingredients }) {
+    
     
     const ingredientItems = ingredients.map((item, index)=>(
         <li key={index}>{item}</li>
     ))
+    
+    const [recipe, setRecipe] = React.useState("")
 
+    const [recipeShown, setRecipeShown] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
+    
+    async function getRecipe() {
+        setLoading(true) // 🔥 start loading
 
+        const recipe = await getRecipeFromMistral(ingredients)
 
+        setRecipe(recipe)
+        setRecipeShown(true)
+
+        setLoading(false) // 🔥 stop loading
+    }
     return (
-        <>
-            <section className="ingredients-section">
-                <h2>Ingredients on hand:</h2>
+        <section className="ingredients-section">
+                
+            <h2>Ingredients on hand:</h2>
 
-                <ul className="ingredients-list" aria-live="polite">
-                    {ingredientItems}
-                </ul>
+            <ul className="ingredients-list" aria-live="polite">
+                {ingredientItems}
+            </ul>
 
-                {ingredients.length > 3 && <CallAIButton />}
-
-            </section>
-            <section>
-                <RecipeFromAI />
-            </section>
-        </>
+            {ingredients.length > 3 && <CallAIButton getRecipe={getRecipe} loading={loading}/>}
+            
+            {recipe && <RecipeFromAI recipe={recipe} />}
+                
+        </section>
     )
 }
